@@ -63,7 +63,7 @@ Run the command below from the Terminal:
 
 👤 **Somodatta**
 
-- Location: Serbia
+- Location: France
 - GitHub: [@Somdotta07](https://github.com/Somdotta07)
 - Twitter: [@somdotta_sarkar07](https://twitter.com/somdotta_sarkar)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/)
