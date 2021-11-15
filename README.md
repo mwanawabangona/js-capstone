@@ -1,1 +1,1 @@
-# js-capstone
+In this activity, your team will prepare a Kanban board with a GitHub project. As this is the very first group project in your Microverse journey, we prepared a very detailed template (in the upcoming group projects, you will have more freedom regarding that) that you just need to copy. In order to copy the Kanban board quickly, you will use a special script prepared for you.
