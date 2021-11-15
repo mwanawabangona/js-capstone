@@ -1,3 +1,53 @@
-.hello {
-    color: red;
-  }
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+* ul li {
+  list-style-type: none;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  width: 100%;
+  background-color: aliceblue;
+}
+
+.header-c,
+.nav-bar,.nav-list {
+  display: flex;
+}
+
+.header-c {
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  height: 50px;
+}
+
+.nav-bar {
+  align-items: center;
+  height: 100%;
+}
+
+.nav-list li {
+  margin: 20px;
+}
+
+.main-c {
+  height: 100vh;
+}
+
+.footer {
+  width: 100%;
+  justify-content: center;
+  margin: 20px;
+  padding: 20px;
+  border: 2px solid black;
+}
