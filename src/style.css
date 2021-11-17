@@ -10,12 +10,9 @@
 }
 
 body {
-  padding: 0;
-  margin: 0;
 }
 
 .header {
-  width: 100%;
   background-color: aliceblue;
 }
 
@@ -27,7 +24,7 @@ body {
 .header-c {
   justify-content: space-between;
   align-items: center;
-  width: 95%;
+  width: 100%;
   height: 50px;
 }
 
