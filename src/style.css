@@ -44,6 +44,50 @@ body {
   height: 100vh;
 }
 
+.cards-c {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 20px;
+  margin: 20px;
+ }
+
+.cards-c li {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.album-image img {
+  width: 275px;
+  height: 275px;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 2px 2px;
+}
+
+.likes {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: -160px;
+  padding: 10px; 
+}
+
+.likes .char-name {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.comment-btn {
+  width: 30%;
+  border: 2.5px solid black;
+  /* border-radius: 10px; */
+  background: white;
+  box-shadow: 4px 4px;
+  font-size: 16px;
+  padding: 5px 12px;
+  margin-left: 50px;
+}
+
 .footer {
   width: 100%;
   justify-content: center;
