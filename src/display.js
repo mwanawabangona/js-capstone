@@ -14,7 +14,7 @@ export const displayPage = (list,ulCon, likes) => {
         </p>
         <p>${likesNum} likes</p>
         </div>
-        <p class="comment-btn">Comments</p>
+        <button id="open">Comments</button>
         </li>`
     });
     ulCon.innerHTML = innerCon;
