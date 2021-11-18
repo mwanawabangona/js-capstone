@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+     <scriptsrc=src="https://kit.fontawesome.com/cb6c5078b1.js"crossorigin="anonymous"
+></scriptsrc=src=>
     <title>JS Capstone Project</title>
 </head>
 <body>
@@ -20,6 +22,22 @@
             </nav>
         </div>
     </header>
+    <div id="pop" class="div-wrap hidden">
+    <div class="popup-con">
+        <i id="close" class="fas fa-times"></i>
+        <ul id="show-comments"></ul>
+        <div class="popup">
+            <img class="pop-up-img" id="img" src="" alt="close-btn">
+                        
+        </div>
+
+        <form id="form" class="inputs">
+            <input id="name" type="text" placeholder="Your name" required><br>
+            <input id="comment" type="text" placeholder="comments" required>
+            <button id="sendBtn" type="submit">comments</button>
+        </form>
+    </div>
+    </div>
     <main class="main-c">
       <ul class="cards-c" id="cards-c"></ul>
     </main>
