@@ -54,6 +54,7 @@ const fetchComments = async (id) => {
         .then((data) => {
             const commentSection = document.getElementById('show-comments')
             commentSection.innerHTML = ""
+
             data.forEach(comment => {
                 if (comment.username !== "") {
                     const template = document.createElement('template')
@@ -61,6 +62,8 @@ const fetchComments = async (id) => {
                     commentSection.appendChild(template.content.firstChild)
                 }
             });
+
+            console.log(data.length);
         })
 }
 
@@ -97,6 +100,7 @@ function display(callback, closePopup) {
                     // handleCommentForm(char.char_id)
                     mData.push(char)
                 });
+                document.getElementById('count-com').innerText=data.length
             } else {
                 innerCon = 'Sorry';
             }
