@@ -3,6 +3,7 @@ import './style.css';
 // import { displayPage } from './display';
 
 const mData = []
+var inFocus = null
 
 const listContainer = document.getElementById('cards-c');
 const name = document.getElementById('name')
@@ -13,34 +14,37 @@ const popUp = document.getElementById('pop')
 
 
 // CREATE COMMENT 
-const createNewComment = async (newObject, itemId = null) => {
+const createNewComment = async (newObject) => {
     const appId = 'PDeItw9GtAiSoybmtycm';
+
     await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json; Charset=UTF-8',
         },
         body: JSON.stringify(newObject)
+    }).then((res) => {
+        console.log(res);
+    }).catch((error) => {
+        throw new Error(error)
     })
-        .catch((error) => {
-            throw new Error(error)
-        })
 }
 
-const handleCommentForm = (id) => {
+const handleCommentForm = () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault()
 
         const commentData = {
-            item_id: id,
+            item_id: inFocus,
             username: name.value,
             comment: comment.value
         }
 
-        createNewComment(commentData, id)
+        console.log(commentData);
+        createNewComment(commentData)
+
         name.value = ''
         comment.value = ''
-
     })
 }
 
@@ -50,18 +54,15 @@ const fetchComments = async (id) => {
         .then((data) => {
             const commentSection = document.getElementById('show-comments')
             commentSection.innerHTML = ""
-
             data.forEach(comment => {
-                console.log(comment);
-                const template = document.createElement('template')
-                template.innerHTML = `<li>user: ${comment.username}${comment.comment}</li>`
-                commentSection.appendChild(template.content.firstChild)
+                if (comment.username !== "") {
+                    const template = document.createElement('template')
+                    template.innerHTML = `<li>user: ${comment.username}${comment.comment}</li>`
+                    commentSection.appendChild(template.content.firstChild)
+                }
             });
         })
 }
-
-fetchComments(2)
-
 
 const closePopup = () => {
     closePopup.addEventListener('click', (e) => {
@@ -74,6 +75,7 @@ function display(callback, closePopup) {
     fetch(`https://www.breakingbadapi.com/api/characters`)
         .then(response => response.json())
         .then(data => {
+            data = data.slice(0, 6);
             let innerCon = '';
             if (data) {
                 data.forEach((char, i) => {
@@ -92,7 +94,7 @@ function display(callback, closePopup) {
                         <button value="${i}" class="comment-btn" id="${char.char_id}">Comments</button>
                         </li>`;
 
-                    handleCommentForm(char.char_id)
+                    // handleCommentForm(char.char_id)
                     mData.push(char)
                 });
             } else {
@@ -104,9 +106,7 @@ function display(callback, closePopup) {
             close.addEventListener('click', () => {
                 popUp.classList.remove('d-flex')
             })
-
             callback()
-
         });
 }
 
@@ -117,21 +117,19 @@ window.onload = () => {
         const btns = document.querySelectorAll('.comment-btn');
         btns.forEach((element, index) => {
             element.addEventListener("click", (e) => {
-                const char = mData[parseInt(e.target.value)]
-                console.log(char);
+                const character = mData[parseInt(e.target.value)]
+                inFocus = character.char_id
                 popUp.classList.remove('hidden');
                 const img = document.getElementById('img')
-                img.src = char.img
-                fetchComments(char.char_id)
+                img.src = character.img
+                fetchComments(character.char_id)
             });
         });
 
-        
-            close.addEventListener('click', () => {
-                popUp.classList.add('hidden');
-            })
+        handleCommentForm()
 
-
+        close.addEventListener('click', () => {
+            popUp.classList.add('hidden');
+        })
     });
-    
 }
