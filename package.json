@@ -1,7 +1,7 @@
 {
   "name": "js-capstone",
   "version": "1.0.0",
-  "description": "",
+  "description": "in this project we will prepare a Kanban board with a GitHub project, with my Learning partner\r # We used:\r - Html & Css\r - Webpacks\r - Linters\r - & Javascript",
   "private": true,
   "scripts": {
     "test": "jest",
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.16.0",
     "css-loader": "^6.5.1",
+    "electron-rebuild": "^3.2.5",
     "global-jsdom": "^8.3.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.3.1",
@@ -32,6 +33,8 @@
     "webpack-dev-server": "^4.5.0"
   },
   "dependencies": {
+    "canvas": "^2.8.0",
     "lodash": "^4.17.21"
-  }
+  },
+  "main": "webpack.config.js"
 }

@@ -16,27 +16,44 @@ describe ('Checks for item on the page', () =>{
   });
 
 
-  describe ('Checks for character card on the page', () =>{
-    const result = itemCounter();
-  
-    test('three cards', ()=>{
+  describe ('Checks for character card on the page', () =>{  
+    test('one card', ()=>{
 
       document.body.innerHTML = '';
-      const testCard = document.createElement('div');
-      testCard.className = 'card-c'
+      const testCard = document.createElement('li');
+      testCard.className = 'cards'
       document.body.append(testCard);
       const showCounter = itemCounter();
 
-      expect(showCounter).toEqual(3);
+      expect(showCounter).toEqual(1);
     });
   
     test('four cards', ()=>{
 
       document.body.innerHTML = '';
-      const testCard = document.createElement('div');
-      testCard.className = 'card-c'
-      document.body.append(testCard);
+      const testCard1 = document.createElement('li');
+      testCard1.className = 'cards'
+      document.body.append(testCard1);
+
+
+     
+      const testCard2 = document.createElement('li');
+      testCard2.className = 'cards'
+      document.body.append(testCard2);
+     
+
+     
+      const testCard3 = document.createElement('li');
+      testCard3.className = 'cards'
+      document.body.append(testCard3);
+
+
+      
+      const testCard4 = document.createElement('li');
+      testCard4.className = 'cards'
+      document.body.append(testCard4);
       const showCounter = itemCounter();
+
 
       expect(showCounter).toEqual(4);
     });
