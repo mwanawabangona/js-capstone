@@ -77,6 +77,15 @@ body {
   font-weight: 700;
 }
 
+.likes-btn i {
+  cursor: pointer;
+}
+
+.likes-btn input {
+  border: none;
+  pointer-events: none;
+}
+
 .comment-btn {
   width: 30%;
   border: 2.5px solid black;
