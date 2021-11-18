@@ -1,5 +1,5 @@
 import './style.css';
-import  displayCount  from './counter';
+import  {displayCount}  from './counter';
 import {addLikes,displayLike} from './likes';
 
 const listContainer = document.getElementById('cards-c');
@@ -24,7 +24,7 @@ function displayImg() {
         <div class="likes">
         <p class="char-name"> ${char.name}</p>
         <p id='${char.char_id}' class="likes-btn">
-        <i class="far fa-heart"></i> <span class= "likes-count" data="${char.char_id}"></span>Likes
+        <i class="far fa-heart"> </i> <span class= "likes-count" data="${char.char_id}"></span><i> <strong>Likes </strong></i>
         </p>
        
         </div>

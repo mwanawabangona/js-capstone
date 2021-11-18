@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
 *{
   padding: 0;
   margin: 0;
@@ -8,19 +10,26 @@
 * ul li {
   list-style-type: none;
 }
+* a {
+  text-decoration: none;
+}
 
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Roboto Slab', serif;
 }
 
 .header {
   width: 100%;
-  background-color: aliceblue;
+  height: 50px;
+  background-color: rgb(113, 182, 243);
 }
 
 .header-c,
-.nav-bar,.nav-list {
+.nav-bar,
+.nav-list,
+.logo {
   display: flex;
 }
 
@@ -31,7 +40,32 @@ body {
   height: 50px;
 }
 
+.logo {
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 5px 6px 8px;
+  padding: 10px;
+  margin: 20px;
+  margin-left: 50px;
+  background: green;
+  display: block;
+  height: 50px;
+  transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
+
+.logo:hover {
+  background-color: #b13712;
+  height: 50px;
+  transform: rotate(360deg);
+}
+
+.logo a {
+  color: #fff;
+  text-shadow: 2px 2px 5px black;
+}
+
 .nav-bar {
+  margin-right: 300px;
   align-items: center;
   height: 100%;
 }
@@ -40,8 +74,24 @@ body {
   margin: 20px;
 }
 
+.nav-list li a {
+  text-shadow: 2px 2px 5px red;
+  font-size: larger;
+  font-weight: 800;
+}
+
+.nav-list li a:hover {
+  color: blueviolet;
+}
+
+.nav-list li .item-counter {
+  padding: 5px;
+  font-weight: 600;
+}
+
 .main-c {
   height: 100vh;
+  margin-top: -20px;
 }
 
 .cards-c {
@@ -49,6 +99,8 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   padding: 20px;
   margin: 20px;
+  margin-left: 120px;
+  background-color: rgba(204, 243, 243, 0.25);
  }
 
 .cards-c li {
@@ -67,13 +119,13 @@ body {
 
 .likes {
   display: flex;
-  justify-content: space-evenly;
-  margin-left: -160px;
-  padding: 10px; 
+  padding: 20px; 
+  gap: 80px;
 }
 
 .likes .char-name {
   font-size: 18px;
+  text-shadow: 2px 2px 5px;
   font-weight: 700;
 }
 
@@ -81,26 +133,45 @@ body {
   cursor: pointer;
 }
 
-.likes-btn input {
-  border: none;
-  pointer-events: none;
+.likes-btn i:hover {
+  font-weight: bolder;
+  color: red;
+}
+
+
+.likes-count {
+  font-weight: 700;
+  color: blue;
+  padding: 3px;
 }
 
 .comment-btn {
   width: 30%;
   border: 2.5px solid black;
-  /* border-radius: 10px; */
+  border-radius: 10px;
   background: white;
   box-shadow: 4px 4px;
   font-size: 16px;
   padding: 5px 12px;
   margin-left: 50px;
+  cursor: pointer;
+}
+
+.comment-btn:hover {
+  background-color: crimson;
 }
 
 .footer {
   width: 100%;
   justify-content: center;
-  margin: 20px;
   padding: 20px;
-  border: 2px solid black;
+  border: 5px solid black;
+  box-shadow: 4px 4px 5px 6px;
+  margin-top: 100px;
+}
+
+.footer p {
+  font-size: larger;
+  font-weight: 600;
+  text-shadow: 2px 2px 5px greenyellow;
 }

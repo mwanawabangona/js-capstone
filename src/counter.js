@@ -19,4 +19,5 @@ const displayCount = () =>{
     option.appendChild(span);
 };
 
-export default displayCount;
+export {displayCount,itemCounter};
+// module.exports = itemCounter;
