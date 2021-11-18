@@ -20,4 +20,3 @@ const displayCount = () =>{
 };
 
 export {displayCount,itemCounter};
-// module.exports = itemCounter;

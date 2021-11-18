@@ -1,5 +1,8 @@
+/**
+ * @jest-environment jsdom
+ */
+ import {itemCounter} from '../src/counter';
 
-const itemCounter = require('.counter');
 describe ('Checks for item on the page', () =>{
     const result = itemCounter();
   
@@ -9,5 +12,32 @@ describe ('Checks for item on the page', () =>{
   
     test('More than zero', ()=>{
       expect(result).toEqual(expect.any(Number));
+    });
+  });
+
+
+  describe ('Checks for character card on the page', () =>{
+    const result = itemCounter();
+  
+    test('three cards', ()=>{
+
+      document.body.innerHTML = '';
+      const testCard = document.createElement('div');
+      testCard.className = 'card-c'
+      document.body.append(testCard);
+      const showCounter = itemCounter();
+
+      expect(showCounter).toEqual(3);
+    });
+  
+    test('four cards', ()=>{
+
+      document.body.innerHTML = '';
+      const testCard = document.createElement('div');
+      testCard.className = 'card-c'
+      document.body.append(testCard);
+      const showCounter = itemCounter();
+
+      expect(showCounter).toEqual(4);
     });
   });
