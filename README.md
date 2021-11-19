@@ -1,3 +1,4 @@
+
 # js-capstone
 
 in this project we will prepare a Kanban board with a GitHub project, with my Learning partner
@@ -10,7 +11,6 @@ in this project we will prepare a Kanban board with a GitHub project, with my Le
 
 
 ![screenshot](./img/)
-![screenshot](.)
 
  
 
@@ -86,3 +86,4 @@ Give a ⭐️ if you like this project!
 ## 📝 License
 
 This project is [MIT](./MIT.md) licensed.
+
