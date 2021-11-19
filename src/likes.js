@@ -1,7 +1,7 @@
 // import { update } from 'lodash';
 
 const baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
-const appKey = 'uNvsOeXZeqiXKjfZf15O';
+const appKey = 'SjWWLlLXTNY3iVbnr4wA';
 // Get likes from API
 const getLikes = async () => {
   const likes = await fetch(`${baseUrl}/${appKey}/likes/`, {
