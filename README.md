@@ -25,7 +25,7 @@ It's javascript capstone project with external API.
 
 ## Live Demo
 
-[https://elastic-galileo-c508f2.netlify.app/]
+[https://mwanawabangona.github.io/js-capstone/]
  
 ## Built With the following
 
