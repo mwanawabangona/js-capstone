@@ -1,5 +1,7 @@
 /* eslint-disable linebreak-style */
 import './style.css';
+import { displayCount } from './counter.js';
+import { addLikes, displayLike } from './likes.js';
 import { createNewComment, getTotalComments } from './comments.js';
 
 const mData = [];
@@ -7,6 +9,41 @@ const gameKey = 'SjWWLlLXTNY3iVbnr4wA';
 const moviesEndPoint = 'https://www.breakingbadapi.com/api/characters';
 const listContainer = document.getElementById('cards-c');
 const popUp = document.getElementById('pop');
+
+function displayImg() {
+  fetch('https://www.breakingbadapi.com/api/characters')
+    .then((response) => response.json())
+    .then((data) => {
+      data = data.slice(0, 6);
+
+      let innerCon = '';
+      if (data) {
+        data.forEach((char) => {
+          innerCon += `
+        <li id="${char.char_id}" class="cards">
+        <div class="album-image">
+        <img src="${char.img}" alt="album ${char.name}">
+      
+        </div>
+        <div class="likes">
+        <p class="char-name"> ${char.name}</p>
+        <p id='${char.char_id}' class="likes-btn">
+        <i class="far fa-heart"> </i> <span class= "likes-count" data="${char.char_id}"></span><i> <strong>Likes </strong></i>
+        </p>
+       
+        </div>
+        <button class="comment-btn">Comments</button>
+        </li>`;
+        });
+      } else {
+        innerCon = 'Sorry';
+      }
+      listContainer.innerHTML = innerCon;
+      addLikes();
+      displayLike();
+      displayCount();
+    });
+}
 
 const displayComments = async (id) => {
   const commentSection = document.getElementById('show-comments');
@@ -54,6 +91,9 @@ const ActivateAddNewComment = (movieId) => {
   });
 };
 
+window.onload = () => {
+  displayImg();
+};
 const getMovieInfo = async (movieId) => {
   const response = await fetch(`${moviesEndPoint}/${movieId}`)
     .then((response) => response.json())

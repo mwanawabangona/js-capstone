@@ -2,6 +2,9 @@
 # js-capstone
 
 in this project we will prepare a Kanban board with a GitHub project, with my Learning partner
+
+
+
 # We used:
 - Html & Css
 - Webpacks

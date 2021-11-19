@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
 * {
   padding: 0;
   margin: 0;
@@ -8,19 +10,29 @@
   list-style-type: none;
 }
 
+* a {
+  text-decoration: none;
+}
+
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Roboto Slab', serif;
 }
 
 .header {
   width: 100%;
-  background-color: aliceblue;
+  height: 60px;
+  background-color: rgb(123, 129, 134);
+  border: 1px solid #2e2d2d;
+  box-shadow: 3px 7px #2e2d2d;
+  position: sticky;
 }
 
 .header-c,
 .nav-bar,
-.nav-list {
+.nav-list,
+.logo {
   display: flex;
 }
 
@@ -31,7 +43,33 @@ body {
   height: 50px;
 }
 
+.logo {
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: 5px 6px 8px;
+  padding: 10px;
+  margin: 20px;
+  margin-top: 30px;
+  margin-left: 50px;
+  background: green;
+  display: block;
+  height: 50px;
+  transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
+
+.logo:hover {
+  background-color: #b13712;
+  height: 50px;
+  transform: rotate(360deg);
+}
+
+.logo a {
+  color: #fff;
+  text-shadow: 2px 2px 5px black;
+}
+
 .nav-bar {
+  margin-right: 300px;
   align-items: center;
   height: 100%;
 }
@@ -40,20 +78,41 @@ body {
   margin: 20px;
 }
 
+.nav-list li a {
+  text-shadow: 2px 2px 5px red;
+  font-size: larger;
+  font-weight: 800;
+}
+
+.nav-list li a:hover {
+  color: blueviolet;
+}
+
+.nav-list li .item-counter {
+  padding: 5px;
+  font-weight: 600;
+}
+
 .main-c {
   height: 100vh;
+  width: 100vw;
+  margin-top: -20px;
 }
 
 .cards-c {
+  height: 100vh;
+  width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 20px;
-  margin: 20px;
+  margin-top: 25px;
+  background-color: rgba(193, 231, 219, 0.4);
 }
 
 .cards-c li {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 20px;
 }
 
@@ -63,110 +122,66 @@ body {
   border: 2px solid black;
   border-radius: 5px;
   box-shadow: 2px 2px;
+  transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
+
+.album-image img:hover {
+  transform: rotate(20deg);
 }
 
 .likes {
   display: flex;
-  justify-content: space-evenly;
-  margin-left: -160px;
-  padding: 10px;
+  padding: 20px;
+  gap: 80px;
 }
 
 .likes .char-name {
   font-size: 18px;
+  text-shadow: 2px 2px 5px #b13712;
   font-weight: 700;
+}
+
+.likes-btn i {
+  cursor: pointer;
+}
+
+.likes-btn i:hover {
+  font-weight: bolder;
+  color: red;
+}
+
+.likes-count {
+  font-weight: 700;
+  color: blue;
+  padding: 3px;
 }
 
 .comment-btn {
   width: 30%;
   border: 2.5px solid black;
+  border-radius: 10px;
   background: white;
   box-shadow: 4px 4px;
   font-size: 16px;
   padding: 5px 12px;
   margin-left: 50px;
+  cursor: pointer;
+}
+
+.comment-btn:hover {
+  background-color: crimson;
 }
 
 .footer {
   width: 100%;
   justify-content: center;
-  margin: 20px;
   padding: 20px;
-  border: 2px solid black;
+  border: 5px solid black;
+  box-shadow: 4px 4px 5px 6px;
 }
 
-.popup-con {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background: rgba(15, 41, 29, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(108, 115, 221, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.div-wrap {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-}
-
-.hidden {
-  display: none;
-}
-
-.d-flex {
-  display: flex;
-}
-
-.popup {
-  width: 15%;
-  height: 10%;
-}
-
-.pop-up-img {
-  height: 350%;
-  position: relative;
-  bottom: 450%;
-  left: 100%;
-  margin-top: 10px;
-}
-
-#closePopUp {
-  position: relative;
-  left: 60%;
-  bottom: 45%;
-  cursor: pointer;
-}
-
-#comment {
-  position: relative;
-  top: 10px;
-  width: 100%;
-  height: 100px;
-}
-
-.inputs {
-  position: relative;
-  top: 200px;
-  right: 12%;
-}
-
-#sendBtn {
-  position: relative;
-  top: 15px;
-}
-
-#show-comments {
-  color: rgb(245, 239, 239);
-}
-
-h2 {
-  position: relative;
-  right: 10px;
+.footer p {
+  font-size: larger;
+  font-weight: 600;
+  text-shadow: 2px 2px 5px greenyellow;
 }
