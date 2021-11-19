@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-
 * ul li {
   list-style-type: none;
 }
+
 * a {
   text-decoration: none;
 }
@@ -101,7 +101,7 @@ body {
   margin: 20px;
   margin-left: 120px;
   background-color: rgba(204, 243, 243, 0.25);
- }
+}
 
 .cards-c li {
   display: flex;
@@ -118,14 +118,13 @@ body {
   transition: width 2s, height 2s, background-color 2s, transform 2s;
 }
 
-
 .album-image img:hover {
   transform: rotate(20deg);
 }
 
 .likes {
   display: flex;
-  padding: 20px; 
+  padding: 20px;
   gap: 80px;
 }
 
@@ -143,7 +142,6 @@ body {
   font-weight: bolder;
   color: red;
 }
-
 
 .likes-count {
   font-weight: 700;

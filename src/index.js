@@ -1,21 +1,20 @@
+/* eslint-disable linebreak-style */
 import './style.css';
-import  {displayCount}  from './counter';
-import {addLikes,displayLike} from './likes';
+import { displayCount } from './counter.js';
+import { addLikes, displayLike } from './likes.js';
 
 const listContainer = document.getElementById('cards-c');
 
-  
-
 function displayImg() {
-    fetch(`https://www.breakingbadapi.com/api/characters`)
-    .then(response => response.json())
-    .then(data => {
-        data = data.slice(0,6);
-        
-        let innerCon = '';
-        if(data){
-            data.forEach(char => {
-                innerCon += `
+  fetch('https://www.breakingbadapi.com/api/characters')
+    .then((response) => response.json())
+    .then((data) => {
+      data = data.slice(0, 6);
+
+      let innerCon = '';
+      if (data) {
+        data.forEach((char) => {
+          innerCon += `
         <li id="${char.char_id}" class="cards">
         <div class="album-image">
         <img src="${char.img}" alt="album ${char.name}">
@@ -30,18 +29,17 @@ function displayImg() {
         </div>
         <button class="comment-btn">Comments</button>
         </li>`;
-            });
-        }else {
-            innerCon = 'Sorry';
-        }
-        listContainer.innerHTML = innerCon;
-        addLikes();
-        displayLike();
-        displayCount();
-         });
+        });
+      } else {
+        innerCon = 'Sorry';
+      }
+      listContainer.innerHTML = innerCon;
+      addLikes();
+      displayLike();
+      displayCount();
+    });
 }
 
-window.onload = () =>{
-    displayImg();
-  
-}
+window.onload = () => {
+  displayImg();
+};
