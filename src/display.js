@@ -1,11 +1,10 @@
-const addLikes = (likes,id) =>{
-    const likedAlbum = likes.find((likeAlbum) => likeAlbum.item_id === id);
-        if(!likedAlbum){
-            return 0;
-        }
-       return likedAlbum.likes;
+const addLikes = (likes, id) => {
+  const likedAlbum = likes.find((likeAlbum) => likeAlbum.item_id === id);
+  if (!likedAlbum) {
+    return 0;
+  }
+  return likedAlbum.likes;
 };
-
 
 // export const displayPage = (list,ulCon, likes) => {
 //     let innerCon = '';
