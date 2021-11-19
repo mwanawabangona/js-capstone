@@ -1,7 +1,7 @@
 // CREATE COMMENT 
 import fetch from 'cross-fetch';
 
-const gameKey = 'PDeItw9GtAiSoybmtycm';
+const gameKey = 'SjWWLlLXTNY3iVbnr4wA';
 const createNewComment = async (newObject) => {
     const appId = gameKey;
     const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments`, {
