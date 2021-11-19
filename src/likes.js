@@ -25,18 +25,14 @@ const postLikes = async (id) => {
   }).then((data) => data.text())
     .then((result) => result)
     .catch(() => 'error');
-
   return res;
 };
 
 const displayLike = async () => {
   const likesData = await getLikes();
-
   const totalLikes = document.querySelectorAll('.likes-count');
-
   totalLikes.forEach((likes) => {
     const id = likes.getAttribute('data');
-
     likesData.forEach((item) => {
       if (item.item_id === id) likes.innerHTML = item.likes;
     });
@@ -51,12 +47,19 @@ const addLikes = () => {
       const id = heart.getAttribute('id');
       const currentLikes = parseInt(heart.innerText, 10);
       postLikes(id).then((res) => {
+        // console.log(res);
         if (res !== 'error') {
           if (!res.error) {
-            heart.innerHTML = (currentLikes + 1);
+            const likesCount = document.querySelectorAll('.likes-count');
+            likesCount.forEach((likes) => {
+              if (e.target.id === id) {
+                likes.innerHTML = (currentLikes + 1);
+              }
+            });
           }
         }
       });
+      displayLike();
     });
   });
 };
