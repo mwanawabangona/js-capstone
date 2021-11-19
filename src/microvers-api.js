@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 const baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
 const appKey = 'uNvsOeXZeqiXKjfZf15O';
 

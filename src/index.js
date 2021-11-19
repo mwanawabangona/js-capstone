@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import './style.css';
 import { createNewComment, getTotalComments } from './comments.js';
 
@@ -18,7 +19,18 @@ const displayComments = async (id) => {
           commentSection.innerHTML += `<li>${comment.creation_date}: ${comment.username}${comment.comment}</li>`;
         }
       });
+    // eslint-disable-next-line no-return-assign
     }).catch(() => (commentSection.innerHTML = 'No comments have been added'));
+};
+const displayTotalComments = (movieId) => {
+  const counterArea = popUp.querySelector('.total-comments');
+  getTotalComments(movieId).then((res) => {
+    if (res) {
+      // eslint-disable-next-line no-return-assign
+      return counterArea.innerText = res;
+      // eslint-disable-next-line no-return-assign
+    } return counterArea.innerText = '0';
+  });
 };
 
 const ActivateAddNewComment = (movieId) => {
@@ -50,57 +62,6 @@ const getMovieInfo = async (movieId) => {
   return response;
 };
 
-const displayMovies = () => {
-  fetch(`${moviesEndPoint}`)
-    .then((response) => response.json())
-    .then((data) => {
-      data = data.slice(0, 6);
-      let innerCon = '';
-      if (data) {
-        data.forEach((char, i) => {
-          innerCon += `
-                    <li id="${char.char_id}" class="cards">
-                    <div class="album-image">
-                    <img src="${char.img}" alt="album ${char.name}">
-                
-                    </div>
-                    <div class="likes">
-                    <p class="char-name"> ${char.name}</p>
-                    <p data-add-like='${char.char_id}' class="likes-btn">
-                    <i class="far fa-heart">Likes 0</i>
-                    </p>
-                    </div>
-                    <button value="${i}" class="comment-btn" id="${char.char_id}">Comments</button>
-                    </li>`;
-          mData.push(char);
-        });
-        document.getElementById('count-com').innerText = data.length;
-      } else {
-        innerCon = 'Sorry';
-      }
-      listContainer.innerHTML = innerCon;
-      listenToCommentsBtn();
-    });
-};
-
-const listenToCommentsBtn = () => {
-  const btns = document.querySelectorAll('.comment-btn');
-  btns.forEach((element) => {
-    element.addEventListener('click', (e) => {
-      const movieId = element.getAttribute('id');
-      displayCommentPopUp(movieId);
-    });
-  });
-};
-
-const displayTotalComments = (movieId) => {
-  const counterArea = popUp.querySelector('.total-comments');
-  getTotalComments(movieId).then((res) => {
-    if (res) {
-      return counterArea.innerText = res;
-    } return counterArea.innerText = '0';
-  });
-};
 const displayCommentPopUp = (movieId) => {
   popUp.classList.remove('hidden');
   popUp.innerHTML = 'Fetching data...';
@@ -148,6 +109,50 @@ const displayCommentPopUp = (movieId) => {
     }
   });
 };
+const listenToCommentsBtn = () => {
+  const btns = document.querySelectorAll('.comment-btn');
+  btns.forEach((element) => {
+    element.addEventListener('click', (e) => {
+      e.preventDefault();
+      const movieId = element.getAttribute('id');
+      displayCommentPopUp(movieId);
+    });
+  });
+};
+
+const displayMovies = () => {
+  fetch(`${moviesEndPoint}`)
+    .then((response) => response.json())
+    .then((data) => {
+      data = data.slice(0, 6);
+      let innerCon = '';
+      if (data) {
+        data.forEach((char, i) => {
+          innerCon += `
+                    <li id="${char.char_id}" class="cards">
+                    <div class="album-image">
+                    <img src="${char.img}" alt="album ${char.name}">
+                
+                    </div>
+                    <div class="likes">
+                    <p class="char-name"> ${char.name}</p>
+                    <p data-add-like='${char.char_id}' class="likes-btn">
+                    <i class="far fa-heart">Likes 0</i>
+                    </p>
+                    </div>
+                    <button value="${i}" class="comment-btn" id="${char.char_id}">Comments</button>
+                    </li>`;
+          mData.push(char);
+        });
+        document.getElementById('count-com').innerText = data.length;
+      } else {
+        innerCon = 'Sorry';
+      }
+      listContainer.innerHTML = innerCon;
+      listenToCommentsBtn();
+    });
+};
+
 window.onload = () => {
   displayMovies();
 };

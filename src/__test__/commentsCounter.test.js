@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import { createNewComment, getTotalComments } from '../comments.js';
 
 test('Count comments', async () => {

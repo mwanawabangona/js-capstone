@@ -80,8 +80,6 @@ body {
 .comment-btn {
   width: 30%;
   border: 2.5px solid black;
-
-  /* border-radius: 10px; */
   background: white;
   box-shadow: 4px 4px;
   font-size: 16px;
@@ -136,12 +134,14 @@ body {
   position: relative;
   bottom: 450%;
   left: 100%;
+  margin-top: 10px;
 }
 
 #closePopUp {
   position: relative;
-  left: 70%;
+  left: 60%;
   bottom: 45%;
+  cursor: pointer;
 }
 
 #comment {
@@ -163,7 +163,7 @@ body {
 }
 
 #show-comments {
-  color: white;
+  color: rgb(245, 239, 239);
 }
 
 h2 {
