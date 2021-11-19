@@ -1,33 +1,36 @@
 
 # js-capstone
 
-in this project we will prepare a Kanban board with a GitHub project, with my Learning partner
+In this project we will prepare a Kanban board with a GitHub project, with my Learning partner. 
+It's javascript capstone project with external API.
 
 
 
 # We used:
-- Html & Css
+- Html & CSS
 - Webpacks
 - Linters
+- Jest
 - & Javascript
 
 
 
 
-![screenshot](./img/)
+![screenshot](https://user-images.githubusercontent.com/84907743/142683569-db8f636b-d29c-43c4-a687-4d7f66351177.png)
 
 
  
 
 ## Live Demo
 
-[Live Demo Link](coming soon!!)
+[https://elastic-galileo-c508f2.netlify.app/]
  
 ## Built With the following
 
 - HTML
 - CSS
 - HTML&CSS Linter
+- Webpack
 
 ## Get Started
 
