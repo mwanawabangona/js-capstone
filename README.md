@@ -17,7 +17,9 @@ It's javascript capstone project with external API.
 
 
 ![screenshot](https://user-images.githubusercontent.com/84907743/142683569-db8f636b-d29c-43c4-a687-4d7f66351177.png)
+## Video
 
+[https://drive.google.com/file/d/1oY0y3424dD-XlU3tx-VYcvpCnrCHKvsE/view?usp=sharing]
 
  
 
