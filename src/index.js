@@ -192,7 +192,3 @@ window.onload = () => {
   displayImg();
   displayMovies();
 };
-
-// window.onload = () => {
-//   displayImg();
-// };
