@@ -1,4 +1,4 @@
-import { update } from 'lodash';
+// import { update } from 'lodash';
 
 const baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
 const appKey = 'uNvsOeXZeqiXKjfZf15O';

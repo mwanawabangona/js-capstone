@@ -1,6 +1,6 @@
 import './style.css';
-import { displayCount } from './counter';
-import { addLikes, displayLike } from './likes';
+import { displayCount } from './counter.js';
+import { addLikes, displayLike } from './likes.js';
 
 const listContainer = document.getElementById('cards-c');
 
