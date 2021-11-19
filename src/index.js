@@ -42,6 +42,9 @@ function displayImg() {
       addLikes();
       displayLike();
       displayCount();
+    });
+}
+
 const displayComments = async (id) => {
   const commentSection = document.getElementById('show-comments');
   await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${gameKey}/comments?item_id=${id}`)
@@ -88,7 +91,9 @@ const ActivateAddNewComment = (movieId) => {
   });
 };
 
-
+window.onload = () => {
+  displayImg();
+};
 const getMovieInfo = async (movieId) => {
   const response = await fetch(`${moviesEndPoint}/${movieId}`)
     .then((response) => response.json())
@@ -189,6 +194,5 @@ const displayMovies = () => {
 };
 
 window.onload = () => {
-  displayImg();
   displayMovies();
 };
