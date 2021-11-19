@@ -2,7 +2,7 @@ import './style.css';
 import { createNewComment, getTotalComments } from './comments.js';
 
 const mData = []
-const gameKey = 'PDeItw9GtAiSoybmtycm';
+const gameKey = 'SjWWLlLXTNY3iVbnr4wA';
 const moviesEndPoint = 'https://www.breakingbadapi.com/api/characters';
 const listContainer = document.getElementById('cards-c');
 const popUp = document.getElementById('pop')
@@ -37,10 +37,10 @@ const displayComments = async (id) => {
         commentSection.innerHTML = "";
         data.forEach(comment => {
             if (comment.username !== "") {
-                commentSection.innerHTML  += `<li>user: ${comment.username}${comment.comment}</li>`;
+                commentSection.innerHTML  += `<li>${comment.creation_date}: ${comment.username}${comment.comment}</li>`;
             }
         });
-    }).catch(() => (commentSection.innerHTML = "Something went wrong. Comments could not be fetched"));
+    }).catch(() => (commentSection.innerHTML = "No comments have been added"));
 }
 
 const getMovieInfo = async (movieId) => {
@@ -99,7 +99,11 @@ const listenToCommentsBtn = () => {
 
 const displayTotalComments = (movieId) => {
     const counterArea = popUp.querySelector('.total-comments');
-    getTotalComments(movieId).then((res) => (counterArea.innerText = res));
+    getTotalComments(movieId).then((res) => {
+        if(res) {
+            return counterArea.innerText = res
+        } return counterArea.innerText = '0'
+    });
 }
 const displayCommentPopUp = (movieId) => {
     popUp.classList.remove('hidden');
@@ -119,8 +123,9 @@ const displayCommentPopUp = (movieId) => {
                         fetching comments...
                     </ul>
                 </div>
-                    <h2>Comment</h2>
+                    
                 <form id="form" class="inputs">
+                    <h2>Add Comment</h2><br>
                     <input type="hidden" name="movie_id" value="${movieId}">
                     <input id="name" type="text" placeholder="Your name" required><br>
                     <input id="comment" type="text" placeholder="comments" required>
