@@ -1,5 +1,3 @@
-// import { update } from 'lodash';
-
 const baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
 const appKey = 'SjWWLlLXTNY3iVbnr4wA';
 // Get likes from API
@@ -47,7 +45,6 @@ const addLikes = () => {
       const id = heart.getAttribute('id');
       const currentLikes = parseInt(heart.innerText, 10);
       postLikes(id).then((res) => {
-        // console.log(res);
         if (res !== 'error') {
           if (!res.error) {
             const likesCount = document.querySelectorAll('.likes-count');
@@ -58,8 +55,8 @@ const addLikes = () => {
             });
           }
         }
+        displayLike();
       });
-      displayLike();
     });
   });
 };

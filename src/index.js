@@ -18,21 +18,18 @@ const displayComments = async (id) => {
       commentSection.innerHTML = '';
       data.forEach((comment) => {
         if (comment.username !== '') {
-          commentSection.innerHTML += `<li>${comment.creation_date}: ${comment.username}${comment.comment}</li>`;
+          commentSection.innerHTML += `<li>${comment.creation_date}: ${comment.username}  ${comment.comment}</li>`;
         }
       });
-    // eslint-disable-next-line no-return-assign
-    }).catch(() => (commentSection.innerHTML = 'No comments have been added'));
+    });
 };
 
 const displayTotalComments = (movieId) => {
   const counterArea = popUp.querySelector('.total-comments');
   getTotalComments(movieId).then((res) => {
     if (res) {
-      // eslint-disable-next-line no-return-assign
-      return counterArea.innerText = res;
-      // eslint-disable-next-line no-return-assign
-    } return counterArea.innerText = '0';
+      counterArea.innerText = res;
+    } else { counterArea.innerText = '0'; }
   });
 };
 
