@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 // CREATE COMMENT
-// import fetch from 'cross-fetch';
+import fetch from 'cross-fetch';
 
 const gameKey = 'SjWWLlLXTNY3iVbnr4wA';
 const createNewComment = async (newObject) => {

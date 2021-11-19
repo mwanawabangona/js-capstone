@@ -10,41 +10,6 @@ const moviesEndPoint = 'https://www.breakingbadapi.com/api/characters';
 const listContainer = document.getElementById('cards-c');
 const popUp = document.getElementById('pop');
 
-function displayImg() {
-  fetch('https://www.breakingbadapi.com/api/characters')
-    .then((response) => response.json())
-    .then((data) => {
-      data = data.slice(0, 6);
-
-      let innerCon = '';
-      if (data) {
-        data.forEach((char) => {
-          innerCon += `
-        <li id="${char.char_id}" class="cards">
-        <div class="album-image">
-        <img src="${char.img}" alt="album ${char.name}">
-      
-        </div>
-        <div class="likes">
-        <p class="char-name"> ${char.name}</p>
-        <p id='${char.char_id}' class="likes-btn">
-        <i class="far fa-heart"> </i> <span class= "likes-count" data="${char.char_id}"></span><i> <strong>Likes </strong></i>
-        </p>
-       
-        </div>
-        <button class="comment-btn">Comments</button>
-        </li>`;
-        });
-      } else {
-        innerCon = 'Sorry';
-      }
-      listContainer.innerHTML = innerCon;
-      addLikes();
-      displayLike();
-      displayCount();
-    });
-}
-
 const displayComments = async (id) => {
   const commentSection = document.getElementById('show-comments');
   await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${gameKey}/comments?item_id=${id}`)
@@ -59,6 +24,7 @@ const displayComments = async (id) => {
     // eslint-disable-next-line no-return-assign
     }).catch(() => (commentSection.innerHTML = 'No comments have been added'));
 };
+
 const displayTotalComments = (movieId) => {
   const counterArea = popUp.querySelector('.total-comments');
   getTotalComments(movieId).then((res) => {
@@ -91,9 +57,6 @@ const ActivateAddNewComment = (movieId) => {
   });
 };
 
-window.onload = () => {
-  displayImg();
-};
 const getMovieInfo = async (movieId) => {
   const response = await fetch(`${moviesEndPoint}/${movieId}`)
     .then((response) => response.json())
@@ -149,6 +112,7 @@ const displayCommentPopUp = (movieId) => {
     }
   });
 };
+
 const listenToCommentsBtn = () => {
   const btns = document.querySelectorAll('.comment-btn');
   btns.forEach((element) => {
@@ -160,39 +124,42 @@ const listenToCommentsBtn = () => {
   });
 };
 
-const displayMovies = () => {
-  fetch(`${moviesEndPoint}`)
+function displayImg() {
+  fetch('https://www.breakingbadapi.com/api/characters')
     .then((response) => response.json())
     .then((data) => {
       data = data.slice(0, 6);
+
       let innerCon = '';
       if (data) {
-        data.forEach((char, i) => {
+        data.forEach((char) => {
           innerCon += `
-                    <li id="${char.char_id}" class="cards">
-                    <div class="album-image">
-                    <img src="${char.img}" alt="album ${char.name}">
-                
-                    </div>
-                    <div class="likes">
-                    <p class="char-name"> ${char.name}</p>
-                    <p data-add-like='${char.char_id}' class="likes-btn">
-                    <i class="far fa-heart">Likes 0</i>
-                    </p>
-                    </div>
-                    <button value="${i}" class="comment-btn" id="${char.char_id}">Comments</button>
-                    </li>`;
+        <li id="${char.char_id}" class="cards">
+        <div class="album-image">
+        <img src="${char.img}" alt="album ${char.name}">
+      
+        </div>
+        <div class="likes">
+        <p class="char-name"> ${char.name}</p>
+        <p id='${char.char_id}' class="likes-btn">
+        <i class="far fa-heart like-icon"> </i> <span class= "likes-count" data="${char.char_id}"></span><i> <strong>Likes </strong></i>
+        </p>
+       
+        </div>
+        <button value="${char.char_id}" class="comment-btn" id="${char.char_id}">Comments</button>
+        </li>`;
           mData.push(char);
         });
-        document.getElementById('count-com').innerText = data.length;
       } else {
         innerCon = 'Sorry';
       }
       listContainer.innerHTML = innerCon;
+      addLikes();
+      displayLike();
+      displayCount();
       listenToCommentsBtn();
     });
-};
-
+}
 window.onload = () => {
-  displayMovies();
+  displayImg();
 };

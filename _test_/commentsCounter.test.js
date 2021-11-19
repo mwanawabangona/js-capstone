@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-import { createNewComment, getTotalComments } from '../comments.js';
+import { createNewComment, getTotalComments } from '../src/comments.js';
 
 test('Count comments', async () => {
   const initialComments = await getTotalComments(25);
