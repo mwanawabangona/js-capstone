@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 import './style.css';
 import { displayCount } from './counter.js';
 import { addLikes, displayLike } from './likes.js';

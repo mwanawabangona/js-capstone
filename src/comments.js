@@ -1,5 +1,3 @@
-/* eslint-disable linebreak-style */
-// CREATE COMMENT
 import fetch from 'cross-fetch';
 
 const gameKey = 'SjWWLlLXTNY3iVbnr4wA';

@@ -1,5 +1,4 @@
 import Storage from './storage.js';
-// Item Counter
 const itemCounter = () => {
   const cards = document.querySelectorAll('.cards');
   return cards.length;
@@ -20,4 +19,3 @@ const displayCount = () => {
 };
 
 export { displayCount, itemCounter };
-// module.exports = itemCounter;

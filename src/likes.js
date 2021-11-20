@@ -1,6 +1,5 @@
 const baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
 const appKey = 'SjWWLlLXTNY3iVbnr4wA';
-// Get likes from API
 const getLikes = async () => {
   const likes = await fetch(`${baseUrl}/${appKey}/likes/`, {
     method: 'GET',
@@ -10,7 +9,6 @@ const getLikes = async () => {
   });
   return likes.json();
 };
-  // Post Likes to API
 const postLikes = async (id) => {
   const res = await fetch(`${baseUrl}/${appKey}/likes/`, {
     method: 'POST',
