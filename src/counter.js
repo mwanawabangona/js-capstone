@@ -1,4 +1,5 @@
 import Storage from './storage.js';
+
 const itemCounter = () => {
   const cards = document.querySelectorAll('.cards');
   return cards.length;
